@@ -1,5 +1,5 @@
 [GraphGenerator|String Query]
-[ResourceGenerator|String Query]
+[ResourceGenerator|String Query] 
 [DataSource|String IRI]
 [Container|String IRI]
 [Member|String IRI]
@@ -9,3 +9,7 @@
 [ContentGenerator]->1..*[DataSource]
 [ContentGenerator]^-[GraphGenerator]
 [ContentGenerator]^-[ResourceGenerator]
+
+There are different relationships between Container and ContentGenerator based on the type of resources:
+	- SubContainers
+	- Members
