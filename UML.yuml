@@ -1,15 +1,12 @@
-[GraphGenerator|String Query]
-[ResourceGenerator|String Query] 
-[DataSource|String IRI]
-[Container|String IRI]
-[Member|String IRI]
-[Container]<>->0..*[Member]
-[Container]->[ContentGenerator]
-[Member]->[ContentGenerator]
-[ContentGenerator]->1..*[DataSource]
-[ContentGenerator]^-[GraphGenerator]
-[ContentGenerator]^-[ResourceGenerator]
-
-There are different relationships between Container and ContentGenerator based on the type of resources:
-	- SubContainers
-	- Members
+[LDPR]^-[LDPRS]
+[LDPR]^-[LDPNR]
+[LDPRS]^-[LDPC]
+[LDPR]-:parentContainer->[LDPC]
+[LDPC]-ldp:contains->[LDPR]
+[LDPC]-:childContainer->[LDPC]
+[LDPC]-:topicDetails->[TopicDetails]
+[RDFSourceSetDetails]-:topicDetails->[TopicDetails]
+[LDPRS]-:topicDetails->[TopicDetails]
+[LDPC]-:childContainerSetDetails>[ContainerSetDetails]
+[ContainerSetDetails]-:topicDetails->[TopicDetails]
+[ContainerSetDetails]-:rdfSourceSetDetails->[RDFSourceSetDetails]
